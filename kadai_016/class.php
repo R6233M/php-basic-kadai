@@ -55,6 +55,10 @@
         // インスタンス$foodと$animalの各プロパティの値を出力する
         print_r($food);
         print_r($animal);
+
+        // メソッドの呼び出し
+        $food->show_price();
+        $animal->show_height();
        ?>
    </p>
 </body>
