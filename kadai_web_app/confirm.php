@@ -5,7 +5,7 @@ session_start();
 // POSTリクエストからの入力データを取得
 $name = $_POST['employee_name'];
 $age = $_POST['employee_age'];
-$category = $_POST['category'];
+$department = $_POST['department'];
 
 // エラーメッセージを格納する配列
 $errors = []; //最初はエラーなし
@@ -28,11 +28,11 @@ if (empty($errors)) {
     // セッション変数を保存
     $_SESSION['employee_name'] = $name;
     $_SESSION['employee_age'] = $age;
-    $_SESSION['category'] = $category;
+    $_SESSION['department'] = $department;
 
-    // クッキーを登録（有効期限は1時間）
-    setcookie('employee_name', $name, time() + 3600);
-    setcookie('employee_age', $age, time() + 3600);
+    // クッキーを登録（有効期限は1分）
+    setcookie('employee_name', $name, time() + 60);
+    setcookie('employee_age', $age, time() + 60);
 }
 ?>
 
@@ -40,7 +40,7 @@ if (empty($errors)) {
 <html lang="ja">
 
 <head>
-    <meta carset="UTF-8">
+    <meta charset="UTF-8">
     <title>kadai_web_app</title>
 </head>
 
@@ -66,7 +66,7 @@ if (empty($errors)) {
 
         <tr>
             <td>所属部署</td>
-            <td><?php echo $category; ?></td>
+            <td><?php echo $department; ?></td>
         </tr>
     </table>
 
